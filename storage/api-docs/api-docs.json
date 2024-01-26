@@ -5,6 +5,58 @@
         "version": "1.0"
     },
     "paths": {
-        "/api/": {}
+        "/api/": {},
+        "/api/properties/": {
+            "post": {
+                "tags": [
+                    "Properties"
+                ],
+                "summary": "New Property",
+                "operationId": "2e50d90b530d839eda9391331557cc06",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "owner_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Property"
+                                            },
+                                            "square": {
+                                                "type": "decimal",
+                                                "example": 100
+                                            },
+                                            "image": {
+                                                "type": "string"
+                                            },
+                                            "square_price": {
+                                                "type": "decimal",
+                                                "example": 8000
+                                            },
+                                            "address": {
+                                                "type": "string",
+                                                "example": "Capetown, Mandela St.200"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
     }
 }

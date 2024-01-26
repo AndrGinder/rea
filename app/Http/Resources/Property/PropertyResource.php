@@ -14,6 +14,13 @@ class PropertyResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            "id"=> $this->id,
+            "name"=> $this->name,
+            "owner_id"=> $this->owner_id,
+            "square"=> $this->square,
+            "square_price"=> $this->square_price,
+            "address"=> $this->address,
+        ];
     }
 }

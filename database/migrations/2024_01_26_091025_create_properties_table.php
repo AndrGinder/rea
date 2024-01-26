@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('owner_id');
             $table->string('name');
-            $table->decimal('square');
+            $table->decimal('square',5,2);
             $table->string('image')->nullable();
-            $table->decimal('square_price');
+            $table->decimal('square_price',7,2);
             $table->text('address');
             $table->timestamps();
         });
