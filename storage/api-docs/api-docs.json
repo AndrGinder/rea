@@ -7,6 +7,62 @@
     "paths": {
         "/api/": {},
         "/api/properties/": {
+            "get": {
+                "tags": [
+                    "Properties"
+                ],
+                "summary": "Show Properties",
+                "operationId": "fbc056394b38bbf448638ecb0d761a90",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Property"
+                                                    },
+                                                    "image": {
+                                                        "type": "string"
+                                                    },
+                                                    "owner_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "square": {
+                                                        "type": "decimal",
+                                                        "example": 100
+                                                    },
+                                                    "square_price": {
+                                                        "type": "decimal",
+                                                        "example": 8000
+                                                    },
+                                                    "address": {
+                                                        "type": "string",
+                                                        "example": "Capetown, Mandela St.200"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "post": {
                 "tags": [
                     "Properties"
@@ -20,20 +76,20 @@
                                 "allOf": [
                                     {
                                         "properties": {
-                                            "owner_id": {
-                                                "type": "integer",
-                                                "example": 1
-                                            },
                                             "name": {
                                                 "type": "string",
                                                 "example": "Property"
                                             },
-                                            "square": {
-                                                "type": "decimal",
-                                                "example": 100
+                                            "owner_id": {
+                                                "type": "integer",
+                                                "example": 1
                                             },
                                             "image": {
                                                 "type": "string"
+                                            },
+                                            "square": {
+                                                "type": "decimal",
+                                                "example": 100
                                             },
                                             "square_price": {
                                                 "type": "decimal",
@@ -53,7 +109,246 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success"
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Property"
+                                                },
+                                                "image": {
+                                                    "type": "string"
+                                                },
+                                                "owner_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "square": {
+                                                    "type": "decimal",
+                                                    "example": 100
+                                                },
+                                                "square_price": {
+                                                    "type": "decimal",
+                                                    "example": 8000
+                                                },
+                                                "address": {
+                                                    "type": "string",
+                                                    "example": "Capetown, Mandela St.200"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/properties/{property}": {
+            "get": {
+                "tags": [
+                    "Properties"
+                ],
+                "summary": "Show Property",
+                "operationId": "b06980939a8152e6becd67a7dc9612cf",
+                "parameters": [
+                    {
+                        "name": "property",
+                        "in": "path",
+                        "description": "Property ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Property"
+                                                },
+                                                "image": {
+                                                    "type": "string"
+                                                },
+                                                "owner_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "square": {
+                                                    "type": "decimal",
+                                                    "example": 100
+                                                },
+                                                "square_price": {
+                                                    "type": "decimal",
+                                                    "example": 8000
+                                                },
+                                                "address": {
+                                                    "type": "string",
+                                                    "example": "Capetown, Mandela St.200"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Properties"
+                ],
+                "summary": "Delete Property",
+                "operationId": "05a6831e98b53fd0a7eb6c9ec9f2a1b5",
+                "parameters": [
+                    {
+                        "name": "property",
+                        "in": "path",
+                        "description": "Property ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Properties"
+                ],
+                "summary": "Update Property",
+                "operationId": "b39a4c06fd220e4f2540fe6ef56ec981",
+                "parameters": [
+                    {
+                        "name": "property",
+                        "in": "path",
+                        "description": "Property ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Property"
+                                            },
+                                            "owner_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "image": {
+                                                "type": "string"
+                                            },
+                                            "square": {
+                                                "type": "decimal",
+                                                "example": 100
+                                            },
+                                            "square_price": {
+                                                "type": "decimal",
+                                                "example": 8000
+                                            },
+                                            "address": {
+                                                "type": "string",
+                                                "example": "Capetown, Mandela St.200"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Property"
+                                                },
+                                                "image": {
+                                                    "type": "string"
+                                                },
+                                                "owner_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "square": {
+                                                    "type": "decimal",
+                                                    "example": 100
+                                                },
+                                                "square_price": {
+                                                    "type": "decimal",
+                                                    "example": 8000
+                                                },
+                                                "address": {
+                                                    "type": "string",
+                                                    "example": "Capetown, Mandela St.200"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 }
             }

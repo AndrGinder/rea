@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PurchasingController;
@@ -17,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+Route::group(['middleware'=>'api', 'prefix'=>'api'], function () {
+    Route::post('login', [AuthController::class,'login'])->name('login');
+    Route::post('logout', [AuthController::class,'logout'])->name('logout');
+    Route::post('refresh', [AuthController::class,'refresh'])->name('refresh');
+    Route::post('me', [AuthController::class,'me'])->name('me');
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
